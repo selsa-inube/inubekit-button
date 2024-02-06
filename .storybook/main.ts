@@ -1,6 +1,9 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
+  core: {
+    disableTelemetry: true,
+  },
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
@@ -12,7 +15,8 @@ const config: StorybookConfig = {
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: true,
+    defaultName: "Documentation",
   },
 };
 export default config;
