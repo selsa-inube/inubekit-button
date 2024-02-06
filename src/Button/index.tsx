@@ -58,18 +58,18 @@ const ButtonStructure = (props: IButtonProps) => {
 
   return (
     <StyledButton
-      appearance={appearance}
-      loading={loading!.toString()}
-      disabled={disabled}
-      iconBefore={iconBefore}
-      iconAfter={iconAfter}
-      type={type}
-      spacing={spacing}
-      variant={variant}
-      fullwidth={fullwidth}
+      $appearance={appearance}
+      $loading={loading!.toString()}
+      $disabled={disabled}
+      $iconBefore={iconBefore}
+      $iconAfter={iconAfter}
+      $type={type}
+      $spacing={spacing}
+      $variant={variant}
+      $fullwidth={fullwidth}
       onClick={disabled ? null : onClick}
-      cursorHover={cursorHover}
-      parentHover={parentHover}
+      $cursorHover={cursorHover}
+      $parentHover={parentHover}
     >
       {loading && !disabled ? (
         <Spinner
@@ -119,7 +119,7 @@ const ButtonStructure = (props: IButtonProps) => {
   );
 };
 
-const Button = (props: IButtonProps) => {
+export const Button = (props: IButtonProps) => {
   const { type = "button", path } = props;
 
   if (type === "link" && !path) {
@@ -136,5 +136,3 @@ const Button = (props: IButtonProps) => {
 
   return <ButtonStructure {...props} />;
 };
-
-export { Button };
