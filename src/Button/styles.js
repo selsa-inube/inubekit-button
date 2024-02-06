@@ -19,7 +19,7 @@ export const StyledButton = styled.button`
   border: none;
   border-width: 1px;
   min-width: 100px;
-  width: ${({ fullwidth: $fullwidth }) => {
+  width: ${({ $fullwidth }) => {
     if ($fullwidth) {
       return "100%";
     }

@@ -38,7 +38,7 @@ export const variants = ["filled", "outlined", "none"] as const;
 
 export type Variant = (typeof variants)[number];
 
-const props = {
+export const props = {
   parameters: {
     docs: {
       description: {
@@ -143,5 +143,3 @@ const props = {
     },
   },
 };
-
-export { props };
