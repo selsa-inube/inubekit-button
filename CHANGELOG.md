@@ -1,3 +1,24 @@
+# v0.0.2 (Tue Feb 06 2024)
+
+#### ⚠️ Pushed to `main`
+
+- fix(Button.style): adjust the behavior when the props fullwidth is active (carlos3k11@gmail.com)
+- feat: update component name in package.json (carlos3k11@gmail.com)
+- feat: refactor code to improve performance and readability (carlos3k11@gmail.com)
+- feat: implement documentation in stories with storybook (carlos3k11@gmail.com)
+- feat(Storybook): remove unnecessary dependencies (carlos3k11@gmail.com)
+- feat: implement the Button component and its dependencies (carlos3k11@gmail.com)
+- feat: enable import of js file (carlos3k11@gmail.com)
+- feat: implement the distribution of the type definition (carlos3k11@gmail.com)
+- Initial commit ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+
+#### Authors: 2
+
+- Andres Babativa (carlos3k11@gmail.com)
+- Januar Asprilla  ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+
+---
+
 # v0.0.1 (Wed Jan 17 2024)
 
 #### ⚠️ Pushed to `main`
