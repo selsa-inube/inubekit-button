@@ -2,7 +2,7 @@ import { Icon } from "@inubekit/icon";
 import { Text } from "@inubekit/text";
 import { Spinner } from "@inubekit/spinner";
 import { Stack } from "@inubekit/stack";
-
+import { inube } from "@inubekit/foundations";
 import { Appearance, Type, Spacing, Variant } from "./props";
 
 import { StyledButton, StyledLink } from "./styles";
@@ -24,16 +24,16 @@ export interface IButtonProps {
   parentHover?: boolean;
 }
 
-function childrenAppearence(variant: Variant, appearance: Appearance) {
+function childrenAppearence(
+  variant: Variant,
+  disabled: boolean,
+  appearance: Appearance,
+) {
   if (variant === "filled") {
-    if (
-      appearance === "warning" ||
-      appearance === "light" ||
-      appearance === "gray"
-    ) {
-      return "dark";
+    if (disabled) {
+      return inube.button[appearance].contrast.appearance.disabled;
     }
-    return "light";
+    return inube.button[appearance].contrast.appearance.regular;
   }
 
   return appearance;
@@ -73,7 +73,12 @@ const ButtonStructure = (props: IButtonProps) => {
     >
       {loading && !disabled ? (
         <Spinner
-          appearance={childrenAppearence(variant, appearance)}
+          appearance={
+            childrenAppearence(variant, disabled, appearance) as Exclude<
+              Appearance,
+              "gray"
+            >
+          }
           transparent={variant === "filled"}
           size="small"
         />
@@ -84,7 +89,7 @@ const ButtonStructure = (props: IButtonProps) => {
               icon={iconBefore}
               spacing="none"
               size="18px"
-              appearance={childrenAppearence(variant, appearance)}
+              appearance={childrenAppearence(variant, disabled, appearance)}
               disabled={disabled}
               cursorHover={cursorHover}
               parentHover={parentHover}
@@ -93,7 +98,9 @@ const ButtonStructure = (props: IButtonProps) => {
           <Text
             type="label"
             size="large"
-            appearance={childrenAppearence(variant, appearance)}
+            appearance={
+              childrenAppearence(variant, disabled, appearance) as Appearance
+            }
             disabled={disabled}
             ellipsis={true}
             cursorHover={cursorHover}
@@ -107,7 +114,7 @@ const ButtonStructure = (props: IButtonProps) => {
               icon={iconAfter}
               spacing="none"
               size="18px"
-              appearance={childrenAppearence(variant, appearance)}
+              appearance={childrenAppearence(variant, disabled, appearance)}
               disabled={disabled}
               cursorHover={cursorHover}
               parentHover={parentHover}

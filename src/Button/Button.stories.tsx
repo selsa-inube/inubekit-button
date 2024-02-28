@@ -1,8 +1,5 @@
-import { ThemeProvider } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
-
-import { presente } from "@inubekit/foundations";
 import { props } from "./props";
 import { Button, IButtonProps } from ".";
 
@@ -37,17 +34,4 @@ Default.args = {
   parentHover: false,
 };
 
-const theme = {
-  ...presente,
-};
-
-export const Themed = (args: IButtonProps) => (
-  <ThemeProvider theme={theme}>
-    <Button {...args} />
-  </ThemeProvider>
-);
-
-Themed.args = {
-  ...Default.args,
-};
 export default story;

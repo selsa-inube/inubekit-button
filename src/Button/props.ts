@@ -1,13 +1,12 @@
 export const appearances = [
   "primary",
-  "error",
-  "warning",
   "success",
-  "information",
+  "warning",
+  "danger",
   "help",
-  "light",
-  "gray",
   "dark",
+  "gray",
+  "light",
 ] as const;
 
 export type Appearance = (typeof appearances)[number];
