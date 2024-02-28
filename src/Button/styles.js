@@ -17,7 +17,7 @@ export const StyledButton = styled.button`
     return "fit-content";
   }};
   max-width: ${({ $fullwidth }) => ($fullwidth ? "none" : "300px")};
-  height: ${({ $spacing }) => (spacing === "compact" ? "28px" : "36px")};
+  height: ${({ $spacing }) => ($spacing === "compact" ? "28px" : "36px")};
   border-style: ${({ $variant }) =>
     $variant === "outlined" ? "solid" : "none"};
 
