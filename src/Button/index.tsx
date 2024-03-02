@@ -7,7 +7,7 @@ import { Appearance, Type, Spacing, Variant } from "./props";
 
 import { StyledButton, StyledLink } from "./styles";
 
-export interface IButtonProps {
+export interface IButton {
   children?: React.ReactNode;
   appearance?: Appearance;
   loading?: boolean;
@@ -31,15 +31,15 @@ function childrenAppearence(
 ) {
   if (variant === "filled") {
     if (disabled) {
-      return inube.button[appearance].contrast.appearance.disabled;
+      return inube.button[appearance].contrast.appearance;
     }
-    return inube.button[appearance].contrast.appearance.regular;
+    return inube.button[appearance].contrast.appearance;
   }
 
   return appearance;
 }
 
-const ButtonStructure = (props: IButtonProps) => {
+const ButtonStructure = (props: IButton) => {
   const {
     children,
     appearance = "primary",
@@ -126,7 +126,7 @@ const ButtonStructure = (props: IButtonProps) => {
   );
 };
 
-export const Button = (props: IButtonProps) => {
+export const Button = (props: IButton) => {
   const { type = "button", path } = props;
 
   if (type === "link" && !path) {

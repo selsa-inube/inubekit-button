@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { MdAdd } from "react-icons/md";
 import { props } from "./props";
-import { Button, IButtonProps } from ".";
+import { Button, IButton } from ".";
 
 const story = {
   title: "inputs/Button",
@@ -16,7 +16,7 @@ const story = {
   ],
 };
 
-export const Default = (args: IButtonProps) => <Button {...args} />;
+export const Default = (args: IButton) => <Button {...args} />;
 
 Default.args = {
   children: "Button",
