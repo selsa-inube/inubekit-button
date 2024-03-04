@@ -24,21 +24,6 @@ export interface IButton {
   parentHover?: boolean;
 }
 
-function childrenAppearence(
-  variant: Variant,
-  disabled: boolean,
-  appearance: Appearance,
-) {
-  if (variant === "filled") {
-    if (disabled) {
-      return inube.button[appearance].contrast.appearance;
-    }
-    return inube.button[appearance].contrast.appearance;
-  }
-
-  return appearance;
-}
-
 const ButtonStructure = (props: IButton) => {
   const {
     children,
@@ -74,10 +59,9 @@ const ButtonStructure = (props: IButton) => {
       {loading && !disabled ? (
         <Spinner
           appearance={
-            childrenAppearence(variant, disabled, appearance) as Exclude<
-              Appearance,
-              "gray"
-            >
+            variant === "filled"
+              ? (inube.button[appearance].contrast.appearance as Appearance)
+              : appearance
           }
           transparent={variant === "filled"}
           size="small"
@@ -89,7 +73,11 @@ const ButtonStructure = (props: IButton) => {
               icon={iconBefore}
               spacing="none"
               size="18px"
-              appearance={childrenAppearence(variant, disabled, appearance)}
+              appearance={
+                variant === "filled"
+                  ? inube.button[appearance].contrast.appearance
+                  : appearance
+              }
               disabled={disabled}
               cursorHover={cursorHover}
               parentHover={parentHover}
@@ -99,7 +87,9 @@ const ButtonStructure = (props: IButton) => {
             type="label"
             size="large"
             appearance={
-              childrenAppearence(variant, disabled, appearance) as Appearance
+              variant === "filled"
+                ? (inube.button[appearance].contrast.appearance as Appearance)
+                : appearance
             }
             disabled={disabled}
             ellipsis={true}
@@ -114,7 +104,11 @@ const ButtonStructure = (props: IButton) => {
               icon={iconAfter}
               spacing="none"
               size="18px"
-              appearance={childrenAppearence(variant, disabled, appearance)}
+              appearance={
+                variant === "filled"
+                  ? inube.button[appearance].contrast.appearance
+                  : appearance
+              }
               disabled={disabled}
               cursorHover={cursorHover}
               parentHover={parentHover}

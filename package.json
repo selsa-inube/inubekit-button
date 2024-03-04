@@ -37,7 +37,7 @@
   "dependencies": {
     "@inubekit/foundations": "^2.5.0",
     "@inubekit/icon": "^1.2.0",
-    "@inubekit/spinner": "^1.1.0",
+    "@inubekit/spinner": "^1.2.0",
     "@inubekit/stack": "^1.1.0",
     "@inubekit/text": "^2.1.0",
     "react": "^18.2.0",
