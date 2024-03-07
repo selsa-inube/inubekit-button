@@ -41,6 +41,18 @@ const ButtonStructure = (props: IButton) => {
     parentHover = false,
   } = props;
 
+  const interceptClick = (e: Event) => {
+    try {
+      onClick && onClick(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
+
   return (
     <StyledButton
       $appearance={appearance}
@@ -52,7 +64,7 @@ const ButtonStructure = (props: IButton) => {
       $spacing={spacing}
       $variant={variant}
       $fullwidth={fullwidth}
-      onClick={disabled ? null : onClick}
+      onClick={disabled ? null : interceptClick}
       $cursorHover={cursorHover}
       $parentHover={parentHover}
     >
@@ -75,7 +87,7 @@ const ButtonStructure = (props: IButton) => {
               size="18px"
               appearance={
                 variant === "filled"
-                  ? inube.button[appearance].contrast.appearance
+                  ? (inube.button[appearance].contrast.appearance as Appearance)
                   : appearance
               }
               disabled={disabled}
@@ -106,7 +118,7 @@ const ButtonStructure = (props: IButton) => {
               size="18px"
               appearance={
                 variant === "filled"
-                  ? inube.button[appearance].contrast.appearance
+                  ? (inube.button[appearance].contrast.appearance as Appearance)
                   : appearance
               }
               disabled={disabled}
