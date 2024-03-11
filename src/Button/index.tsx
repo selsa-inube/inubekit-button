@@ -7,7 +7,7 @@ import { Appearance, Type, Spacing, Variant } from "./props";
 
 import { StyledButton, StyledLink } from "./styles";
 
-export interface IButton {
+interface IButton {
   children?: React.ReactNode;
   appearance?: Appearance;
   loading?: boolean;
@@ -91,8 +91,8 @@ const ButtonStructure = (props: IButton) => {
                   : appearance
               }
               disabled={disabled}
-              cursorHover={cursorHover}
-              parentHover={parentHover}
+              cursorHover={variant === "filled" ? false : cursorHover}
+              parentHover={variant === "filled" ? false : parentHover}
             />
           )}
           <Text
@@ -105,8 +105,8 @@ const ButtonStructure = (props: IButton) => {
             }
             disabled={disabled}
             ellipsis={true}
-            cursorHover={cursorHover}
-            parentHover={parentHover}
+            cursorHover={variant === "filled" ? false : cursorHover}
+            parentHover={variant === "filled" ? false : parentHover}
             textAlign="start"
           >
             {children}
@@ -122,8 +122,8 @@ const ButtonStructure = (props: IButton) => {
                   : appearance
               }
               disabled={disabled}
-              cursorHover={cursorHover}
-              parentHover={parentHover}
+              cursorHover={variant === "filled" ? false : cursorHover}
+              parentHover={variant === "filled" ? false : parentHover}
             />
           )}
         </Stack>
@@ -132,7 +132,7 @@ const ButtonStructure = (props: IButton) => {
   );
 };
 
-export const Button = (props: IButton) => {
+const Button = (props: IButton) => {
   const { type = "button", path } = props;
 
   if (type === "link" && !path) {
@@ -149,3 +149,6 @@ export const Button = (props: IButton) => {
 
   return <ButtonStructure {...props} />;
 };
+
+export { Button };
+export type { IButton };

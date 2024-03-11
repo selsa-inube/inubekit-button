@@ -16,7 +16,7 @@ const story = {
   ],
 };
 
-export const Default = (args: IButton) => <Button {...args} />;
+const Default = (args: IButton) => <Button {...args} />;
 
 Default.args = {
   children: "Button",
@@ -34,4 +34,5 @@ Default.args = {
   parentHover: false,
 };
 
+export { Default };
 export default story;
