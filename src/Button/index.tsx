@@ -2,12 +2,13 @@ import { Icon } from "@inubekit/icon";
 import { Text } from "@inubekit/text";
 import { Spinner } from "@inubekit/spinner";
 import { Stack } from "@inubekit/stack";
-
+import { inube } from "@inubekit/foundations";
 import { Appearance, Type, Spacing, Variant } from "./props";
 
 import { StyledButton, StyledLink } from "./styles";
+import { useState } from "react";
 
-export interface IButtonProps {
+interface IButton {
   children?: React.ReactNode;
   appearance?: Appearance;
   loading?: boolean;
@@ -24,22 +25,19 @@ export interface IButtonProps {
   parentHover?: boolean;
 }
 
-function childrenAppearence(variant: Variant, appearance: Appearance) {
+const determineParentHover = (
+  variant: string,
+  cursorHover: boolean,
+  isHovered: boolean,
+  parentHover: boolean,
+) => {
   if (variant === "filled") {
-    if (
-      appearance === "warning" ||
-      appearance === "light" ||
-      appearance === "gray"
-    ) {
-      return "dark";
-    }
-    return "light";
+    return false;
   }
+  return cursorHover && !parentHover ? isHovered : parentHover;
+};
 
-  return appearance;
-}
-
-const ButtonStructure = (props: IButtonProps) => {
+const ButtonStructure = (props: IButton) => {
   const {
     children,
     appearance = "primary",
@@ -56,6 +54,30 @@ const ButtonStructure = (props: IButtonProps) => {
     parentHover = false,
   } = props;
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
+  const interceptClick = (e: Event) => {
+    try {
+      onClick && onClick(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
+
+  const helperParentHover = determineParentHover(
+    variant,
+    cursorHover,
+    isHovered,
+    parentHover,
+  );
+
   return (
     <StyledButton
       $appearance={appearance}
@@ -67,13 +89,19 @@ const ButtonStructure = (props: IButtonProps) => {
       $spacing={spacing}
       $variant={variant}
       $fullwidth={fullwidth}
-      onClick={disabled ? null : onClick}
+      onClick={disabled ? null : interceptClick}
       $cursorHover={cursorHover}
       $parentHover={parentHover}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {loading && !disabled ? (
         <Spinner
-          appearance={childrenAppearence(variant, appearance)}
+          appearance={
+            variant === "filled"
+              ? (inube.button[appearance].contrast.appearance as Appearance)
+              : appearance
+          }
           transparent={variant === "filled"}
           size="small"
         />
@@ -84,20 +112,26 @@ const ButtonStructure = (props: IButtonProps) => {
               icon={iconBefore}
               spacing="none"
               size="18px"
-              appearance={childrenAppearence(variant, appearance)}
+              appearance={
+                variant === "filled"
+                  ? (inube.button[appearance].contrast.appearance as Appearance)
+                  : appearance
+              }
               disabled={disabled}
-              cursorHover={cursorHover}
-              parentHover={parentHover}
+              parentHover={helperParentHover}
             />
           )}
           <Text
             type="label"
             size="large"
-            appearance={childrenAppearence(variant, appearance)}
+            appearance={
+              variant === "filled"
+                ? (inube.button[appearance].contrast.appearance as Appearance)
+                : appearance
+            }
             disabled={disabled}
             ellipsis={true}
-            cursorHover={cursorHover}
-            parentHover={parentHover}
+            parentHover={helperParentHover}
             textAlign="start"
           >
             {children}
@@ -107,10 +141,13 @@ const ButtonStructure = (props: IButtonProps) => {
               icon={iconAfter}
               spacing="none"
               size="18px"
-              appearance={childrenAppearence(variant, appearance)}
+              appearance={
+                variant === "filled"
+                  ? (inube.button[appearance].contrast.appearance as Appearance)
+                  : appearance
+              }
               disabled={disabled}
-              cursorHover={cursorHover}
-              parentHover={parentHover}
+              parentHover={helperParentHover}
             />
           )}
         </Stack>
@@ -119,7 +156,7 @@ const ButtonStructure = (props: IButtonProps) => {
   );
 };
 
-export const Button = (props: IButtonProps) => {
+const Button = (props: IButton) => {
   const { type = "button", path } = props;
 
   if (type === "link" && !path) {
@@ -136,3 +173,6 @@ export const Button = (props: IButtonProps) => {
 
   return <ButtonStructure {...props} />;
 };
+
+export { Button };
+export type { IButton };

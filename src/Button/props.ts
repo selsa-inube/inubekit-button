@@ -1,22 +1,21 @@
-export const appearances = [
+const appearances = [
   "primary",
-  "error",
-  "warning",
   "success",
-  "information",
+  "warning",
+  "danger",
   "help",
-  "light",
-  "gray",
   "dark",
+  "gray",
+  "light",
 ] as const;
 
-export type Appearance = (typeof appearances)[number];
+type Appearance = (typeof appearances)[number];
 
-export const spacings = ["wide", "compact"] as const;
+const spacings = ["wide", "compact"] as const;
 
-export type Spacing = (typeof spacings)[number];
+type Spacing = (typeof spacings)[number];
 
-export type SpinnerColor =
+type SpinnerColor =
   | "white"
   | "dark"
   | "blue"
@@ -25,20 +24,17 @@ export type SpinnerColor =
   | "red"
   | "purple";
 
-export type SpinnerColorHomologation = Record<
-  Variant,
-  Record<Appearance, string>
->;
+type SpinnerColorHomologation = Record<Variant, Record<Appearance, string>>;
 
-export const types = ["button", "submit", "reset", "link"] as const;
+const types = ["button", "submit", "reset", "link"] as const;
 
-export type Type = (typeof types)[number];
+type Type = (typeof types)[number];
 
-export const variants = ["filled", "outlined", "none"] as const;
+const variants = ["filled", "outlined", "none"] as const;
 
-export type Variant = (typeof variants)[number];
+type Variant = (typeof variants)[number];
 
-export const props = {
+const props = {
   parameters: {
     docs: {
       description: {
@@ -142,4 +138,14 @@ export const props = {
       defaultValue: { summary: false },
     },
   },
+};
+
+export { appearances, props, spacings, variants, types };
+export type {
+  Appearance,
+  Spacing,
+  SpinnerColor,
+  SpinnerColorHomologation,
+  Type,
+  Variant,
 };

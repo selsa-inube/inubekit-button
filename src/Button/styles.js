@@ -1,19 +1,9 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
 import { inube } from "@inubekit/foundations";
 
-const spacing = {
-  compact: {
-    height: "28px",
-  },
-  wide: {
-    height: "36px",
-  },
-};
-
 export const StyledButton = styled.button`
-  padding: ${inube.spacing.s0} ${inube.spacing.s200};
+  padding: 0 16px;
   transition: all 0.3s ease;
   border-radius: 8px;
   border: none;
@@ -27,7 +17,7 @@ export const StyledButton = styled.button`
     return "fit-content";
   }};
   max-width: ${({ $fullwidth }) => ($fullwidth ? "none" : "300px")};
-  ${({ $spacing }) => spacing[$spacing]};
+  height: ${({ $spacing }) => ($spacing === "compact" ? "28px" : "36px")};
   border-style: ${({ $variant }) =>
     $variant === "outlined" ? "solid" : "none"};
 
@@ -41,21 +31,20 @@ export const StyledButton = styled.button`
     if ($variant === "filled") {
       if ($disabled) {
         return (
-          theme?.color?.surface?.[$appearance]?.disabled ||
-          inube.color.surface[$appearance].disabled
+          theme?.button?.[$appearance].content?.color?.disabled ||
+          inube.button[$appearance].content.color.disabled
         );
       }
       if ($parentHover)
         return (
-          theme?.color?.surface?.[$appearance]?.hover ||
-          inube.color.surface[$appearance].hover
+          theme?.button?.[$appearance].content?.color?.hover ||
+          inube.button[$appearance].content.color.hover
         );
       return (
-        theme?.color?.surface?.[$appearance]?.regular ||
-        inube.color.surface[$appearance].regular
+        theme?.button?.[$appearance].content?.color?.regular ||
+        inube.button[$appearance].content.color.regular
       );
     }
-
     return "transparent";
   }};
 
@@ -71,22 +60,22 @@ export const StyledButton = styled.button`
         return "transparent";
       }
       return (
-        theme?.color?.stroke?.[$appearance]?.disabled ||
-        inube.color.stroke[$appearance].disabled
+        theme?.button?.[$appearance].border?.color?.disabled ||
+        inube.button[$appearance].border.color.disabled
       );
     }
     if ($parentHover && $variant !== "none")
       return (
-        theme?.color?.stroke?.[$appearance]?.hover ||
-        inube.color.stroke[$appearance].hover
+        theme?.button?.[$appearance].border?.color?.hover ||
+        inube.button[$appearance].border.color.hover
       );
     if ($variant === "none") {
       return "transparent";
     }
 
     return (
-      theme?.color?.stroke?.[$appearance]?.regular ||
-      inube.color.stroke[$appearance].regular
+      theme?.button?.[$appearance].border?.color?.regular ||
+      inube.button[$appearance].border.color.regular
     );
   }};
 
@@ -115,8 +104,8 @@ export const StyledButton = styled.button`
           return "transparent";
         }
         return (
-          theme?.color?.stroke?.[$appearance]?.hover ||
-          inube.color.stroke[$appearance].hover
+          theme?.button?.[$appearance].border?.color?.hover ||
+          inube.button[$appearance].border.color.hover
         );
       }
     }};
@@ -130,8 +119,8 @@ export const StyledButton = styled.button`
     }) => {
       if (!$disabled && $cursorHover && $variant === "filled") {
         return (
-          theme?.color?.surface?.[$appearance]?.hover ||
-          inube.color.surface[$appearance].hover
+          theme?.button?.[$appearance].content?.color?.hover ||
+          inube.button[$appearance].content.color.hover
         );
       }
       if (!$disabled && $cursorHover && $variant === "none") {

@@ -1,6 +1,6 @@
-# IDS - Starter
+# IDS - Button
 
-This project is a starter repository that can be used to develop and publish new Inube Design System components. With this repository the intention is that any design-system team member can start to develop a new component without starting from scratch.
+This project is a button repository that can be used to help people take action, such as sending an email, sharing a document, or liking a comment. Also, this the intention of button are triggers for events or actions. They’re commonly used as part of larger components or patterns such as forms or modal dialogs.
 
 ## Readme
 
