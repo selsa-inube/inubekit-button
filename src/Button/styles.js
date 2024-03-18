@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { inube } from "@inubekit/foundations";
 
-export const StyledButton = styled.button`
+const StyledButton = styled.button`
   padding: 0 16px;
   transition: all 0.3s ease;
   border-radius: 8px;
@@ -130,6 +130,8 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const StyledLink = styled(Link)`
+const StyledLink = styled(Link)`
   text-decoration: none;
 `;
+
+export { StyledButton, StyledLink };
