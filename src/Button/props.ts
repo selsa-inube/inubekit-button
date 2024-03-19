@@ -9,13 +9,13 @@ const appearances = [
   "light",
 ] as const;
 
-type Appearance = (typeof appearances)[number];
+type IButtonAppearance = (typeof appearances)[number];
 
 const spacings = ["wide", "compact"] as const;
 
-type Spacing = (typeof spacings)[number];
+type IButtonSpacing = (typeof spacings)[number];
 
-type SpinnerColor =
+type IButtonSpinnerColor =
   | "white"
   | "dark"
   | "blue"
@@ -24,15 +24,18 @@ type SpinnerColor =
   | "red"
   | "purple";
 
-type SpinnerColorHomologation = Record<Variant, Record<Appearance, string>>;
+type IButtonSpinnerColorHomologation = Record<
+  IButtonVariant,
+  Record<IButtonAppearance, string>
+>;
 
 const types = ["button", "submit", "reset", "link"] as const;
 
-type Type = (typeof types)[number];
+type IButtonType = (typeof types)[number];
 
 const variants = ["filled", "outlined", "none"] as const;
 
-type Variant = (typeof variants)[number];
+type IButtonVariant = (typeof variants)[number];
 
 const props = {
   parameters: {
@@ -142,10 +145,10 @@ const props = {
 
 export { appearances, props, spacings, variants, types };
 export type {
-  Appearance,
-  Spacing,
-  SpinnerColor,
-  SpinnerColorHomologation,
-  Type,
-  Variant,
+  IButtonAppearance,
+  IButtonSpacing,
+  IButtonSpinnerColor,
+  IButtonSpinnerColorHomologation,
+  IButtonType,
+  IButtonVariant,
 };

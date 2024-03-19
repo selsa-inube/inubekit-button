@@ -3,21 +3,26 @@ import { Text } from "@inubekit/text";
 import { Spinner } from "@inubekit/spinner";
 import { Stack } from "@inubekit/stack";
 import { inube } from "@inubekit/foundations";
-import { Appearance, Type, Spacing, Variant } from "./props";
+import {
+  IButtonAppearance,
+  IButtonType,
+  IButtonSpacing,
+  IButtonVariant,
+} from "./props";
 
 import { StyledButton, StyledLink } from "./styles";
 import { useState } from "react";
 
 interface IButton {
   children?: React.ReactNode;
-  appearance?: Appearance;
+  appearance?: IButtonAppearance;
   loading?: boolean;
   disabled?: boolean;
   iconBefore?: React.ReactElement;
   iconAfter?: React.ReactElement;
-  type?: Type;
-  spacing?: Spacing;
-  variant?: Variant;
+  type?: IButtonType;
+  spacing?: IButtonSpacing;
+  variant?: IButtonVariant;
   fullwidth?: boolean;
   onClick?: (e?: Event) => void;
   path?: string;
@@ -29,7 +34,7 @@ const determineParentHover = (
   variant: string,
   cursorHover: boolean,
   isHovered: boolean,
-  parentHover: boolean,
+  parentHover: boolean
 ) => {
   if (variant === "filled") {
     return false;
@@ -75,7 +80,7 @@ const ButtonStructure = (props: IButton) => {
     variant,
     cursorHover,
     isHovered,
-    parentHover,
+    parentHover
   );
 
   return (
@@ -99,7 +104,8 @@ const ButtonStructure = (props: IButton) => {
         <Spinner
           appearance={
             variant === "filled"
-              ? (inube.button[appearance].contrast.appearance as Appearance)
+              ? (inube.button[appearance].contrast
+                  .appearance as IButtonAppearance)
               : appearance
           }
           transparent={variant === "filled"}
@@ -114,7 +120,8 @@ const ButtonStructure = (props: IButton) => {
               size="18px"
               appearance={
                 variant === "filled"
-                  ? (inube.button[appearance].contrast.appearance as Appearance)
+                  ? (inube.button[appearance].contrast
+                      .appearance as IButtonAppearance)
                   : appearance
               }
               disabled={disabled}
@@ -126,7 +133,8 @@ const ButtonStructure = (props: IButton) => {
             size="large"
             appearance={
               variant === "filled"
-                ? (inube.button[appearance].contrast.appearance as Appearance)
+                ? (inube.button[appearance].contrast
+                    .appearance as IButtonAppearance)
                 : appearance
             }
             disabled={disabled}
@@ -143,7 +151,8 @@ const ButtonStructure = (props: IButton) => {
               size="18px"
               appearance={
                 variant === "filled"
-                  ? (inube.button[appearance].contrast.appearance as Appearance)
+                  ? (inube.button[appearance].contrast
+                      .appearance as IButtonAppearance)
                   : appearance
               }
               disabled={disabled}
