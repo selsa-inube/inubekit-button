@@ -1,3 +1,19 @@
+# v2.0.1 (Tue Mar 19 2024)
+
+#### 🐛 Bug Fix
+
+- Update foundations dependency [#4](https://github.com/selsa-inube/inubekit-button/pull/4) ([@cmarin001](https://github.com/cmarin001))
+
+#### 📝 Documentation
+
+- Publish new version 2.0.0 [#3](https://github.com/selsa-inube/inubekit-button/pull/3) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.0.0 (Wed Mar 13 2024)
 
 #### 💥 Breaking Change
