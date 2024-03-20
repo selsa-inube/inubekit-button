@@ -15,20 +15,6 @@ const spacings = ["wide", "compact"] as const;
 
 type IButtonSpacing = (typeof spacings)[number];
 
-type IButtonSpinnerColor =
-  | "white"
-  | "dark"
-  | "blue"
-  | "green"
-  | "yellow"
-  | "red"
-  | "purple";
-
-type IButtonSpinnerColorHomologation = Record<
-  IButtonVariant,
-  Record<IButtonAppearance, string>
->;
-
 const types = ["button", "submit", "reset", "link"] as const;
 
 type IButtonType = (typeof types)[number];
@@ -144,11 +130,4 @@ const props = {
 };
 
 export { appearances, props, spacings, variants, types };
-export type {
-  IButtonAppearance,
-  IButtonSpacing,
-  IButtonSpinnerColor,
-  IButtonSpinnerColorHomologation,
-  IButtonType,
-  IButtonVariant,
-};
+export type { IButtonAppearance, IButtonSpacing, IButtonType, IButtonVariant };
