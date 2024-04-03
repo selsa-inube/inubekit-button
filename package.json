@@ -32,14 +32,21 @@
     "auto": "auto",
     "changelog": "npm run auto changelog",
     "version": "rm -rf dist && npm run build",
-    "release": "git push --follow-tags && npm run auto release"
+    "release": "git push --follow-tags && npm run auto release",
+    "autorelease": "auto shipit"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "dependencies": {
     "@inubekit/foundations": "^2.10.0",
     "@inubekit/icon": "^1.3.0",
     "@inubekit/spinner": "^1.2.0",
     "@inubekit/stack": "^2.0.0",
-    "@inubekit/text": "^2.1.0",
+    "@inubekit/text": "^2.1.0"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
@@ -75,5 +82,14 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/selsa-inube/inubekit-button.git"
+  },
+  "auto": {
+    "plugins": [
+      "npm"
+    ]
   }
 }
