@@ -12,6 +12,8 @@ import {
 
 import { StyledButton, StyledLink } from "./styles";
 import { useState } from "react";
+import { useContext } from "react";
+import { ThemeContext } from "styled-components";
 
 interface IButton {
   children?: React.ReactNode;
@@ -34,7 +36,7 @@ const determineParentHover = (
   variant: string,
   cursorHover: boolean,
   isHovered: boolean,
-  parentHover: boolean
+  parentHover: boolean,
 ) => {
   if (variant === "filled") {
     return false;
@@ -59,6 +61,17 @@ const ButtonStructure = (props: IButton) => {
     parentHover = false,
   } = props;
 
+  const theme: typeof inube = useContext(ThemeContext);
+  const externalComponentAppearance = (
+    appearance: IButtonAppearance,
+  ): IButtonAppearance => {
+    return (
+      (theme?.button?.[appearance]?.contrast
+        ?.appearance as keyof typeof inube.button) ||
+      inube.button[appearance].contrast.appearance
+    );
+  };
+
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => setIsHovered(true);
@@ -80,7 +93,7 @@ const ButtonStructure = (props: IButton) => {
     variant,
     cursorHover,
     isHovered,
-    parentHover
+    parentHover,
   );
 
   return (
@@ -104,8 +117,7 @@ const ButtonStructure = (props: IButton) => {
         <Spinner
           appearance={
             variant === "filled"
-              ? (inube.button[appearance].contrast
-                  .appearance as IButtonAppearance)
+              ? externalComponentAppearance(appearance)
               : appearance
           }
           transparent={variant === "filled"}
@@ -120,8 +132,7 @@ const ButtonStructure = (props: IButton) => {
               size="18px"
               appearance={
                 variant === "filled"
-                  ? (inube.button[appearance].contrast
-                      .appearance as IButtonAppearance)
+                  ? externalComponentAppearance(appearance)
                   : appearance
               }
               disabled={disabled}
@@ -133,8 +144,7 @@ const ButtonStructure = (props: IButton) => {
             size="large"
             appearance={
               variant === "filled"
-                ? (inube.button[appearance].contrast
-                    .appearance as IButtonAppearance)
+                ? externalComponentAppearance(appearance)
                 : appearance
             }
             disabled={disabled}
@@ -151,8 +161,7 @@ const ButtonStructure = (props: IButton) => {
               size="18px"
               appearance={
                 variant === "filled"
-                  ? (inube.button[appearance].contrast
-                      .appearance as IButtonAppearance)
+                  ? externalComponentAppearance(appearance)
                   : appearance
               }
               disabled={disabled}
