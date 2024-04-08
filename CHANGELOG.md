@@ -1,3 +1,15 @@
+# v4.0.0 (Mon Apr 08 2024)
+
+#### 💥 Breaking Change
+
+- Refactor component so it uses theme from ThemeContext [#11](https://github.com/selsa-inube/inubekit-button/pull/11) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v3.0.0 (Mon Apr 08 2024)
 
 #### 💥 Breaking Change
