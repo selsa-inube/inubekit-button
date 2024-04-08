@@ -1,3 +1,15 @@
+# v3.0.0 (Mon Apr 08 2024)
+
+#### 💥 Breaking Change
+
+- `<Button/>`: Adjustment in order to avoid to throw the compilation error [#10](https://github.com/selsa-inube/inubekit-button/pull/10) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v2.1.1 (Thu Apr 04 2024)
 
 #### 🐛 Bug Fix
