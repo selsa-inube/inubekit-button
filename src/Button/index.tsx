@@ -62,14 +62,9 @@ const ButtonStructure = (props: IButton) => {
   } = props;
 
   const theme: typeof inube = useContext(ThemeContext);
-  const externalComponentAppearance = (
-    appearance: IButtonAppearance,
-  ): IButtonAppearance => {
-    return (
-      (theme?.button?.[appearance]?.contrast
-        ?.appearance as keyof typeof inube.button) ||
-      inube.button[appearance].contrast.appearance
-    );
+  const externalComponentAppearance = (appearance: IButtonAppearance) => {
+    return (theme?.button?.[appearance]?.contrast?.appearance ||
+      inube.button[appearance].contrast.appearance) as IButtonAppearance;
   };
 
   const [isHovered, setIsHovered] = useState(false);
