@@ -146,6 +146,7 @@ const ButtonStructure = (props: IButton) => {
             ellipsis={true}
             parentHover={helperParentHover}
             textAlign="start"
+            weight="bold"
           >
             {children}
           </Text>
