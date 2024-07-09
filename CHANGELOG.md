@@ -1,3 +1,15 @@
+# v4.4.0 (Tue Jul 09 2024)
+
+#### 🚀 Enhancement
+
+- Update foundations dependencies [#15](https://github.com/selsa-inube/inubekit-button/pull/15) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v4.3.0 (Fri Jun 28 2024)
 
 #### 🚀 Enhancement
