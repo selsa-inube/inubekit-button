@@ -123,7 +123,6 @@ const ButtonStructure = (props: IButton) => {
           {iconBefore && (
             <Icon
               icon={iconBefore}
-              spacing="none"
               size="18px"
               appearance={
                 variant === "filled"
@@ -153,7 +152,6 @@ const ButtonStructure = (props: IButton) => {
           {iconAfter && (
             <Icon
               icon={iconAfter}
-              spacing="none"
               size="18px"
               appearance={
                 variant === "filled"
