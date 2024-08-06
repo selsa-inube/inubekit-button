@@ -98,7 +98,7 @@ const ButtonStructure = (props: IButton) => {
       $disabled={disabled}
       $iconBefore={iconBefore}
       $iconAfter={iconAfter}
-      $type={type}
+      type={type}
       $spacing={spacing}
       $variant={variant}
       $fullwidth={fullwidth}
