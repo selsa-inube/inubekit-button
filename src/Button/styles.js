@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import { inube } from "@inubekit/foundations";
 
 const StyledButton = styled.button`
-  padding: 0 16px;
+  box-sizing: border-box;
+  padding: ${({ $spacing }) => ($spacing === "compact" ? "4px" : "8px")} 16px;
   transition: all 0.3s ease;
-  border-radius: 8px;
-  border: none;
-  border-width: 1px;
   min-width: 100px;
+  max-width: ${({ $fullwidth }) => ($fullwidth ? "none" : "300px")};
   width: ${({ $fullwidth }) => {
     if ($fullwidth) {
       return "100%";
@@ -16,10 +15,6 @@ const StyledButton = styled.button`
 
     return "fit-content";
   }};
-  max-width: ${({ $fullwidth }) => ($fullwidth ? "none" : "300px")};
-  height: ${({ $spacing }) => ($spacing === "compact" ? "28px" : "36px")};
-  border-style: ${({ $variant }) =>
-    $variant === "outlined" ? "solid" : "none"};
 
   background-color: ${({
     theme,
@@ -48,6 +43,10 @@ const StyledButton = styled.button`
     return "transparent";
   }};
 
+  border-radius: 8px;
+  border-width: 1px;
+  border-style: ${({ $variant }) =>
+    $variant === "outlined" ? "solid" : "none"};
   border-color: ${({
     theme,
     $appearance,
