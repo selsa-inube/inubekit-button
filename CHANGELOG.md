@@ -1,3 +1,15 @@
+# v4.34.1 (Thu Sep 19 2024)
+
+#### 🐛 Bug Fix
+
+- fix: flex layout with gap and button padding with props [#52](https://github.com/selsa-inube/inubekit-button/pull/52) ([@wfercanas](https://github.com/wfercanas))
+
+#### Authors: 1
+
+- Fernando Cañas ([@wfercanas](https://github.com/wfercanas))
+
+---
+
 # v4.34.0 (Wed Sep 04 2024)
 
 #### 🚀 Enhancement
