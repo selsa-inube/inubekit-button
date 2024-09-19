@@ -22,7 +22,7 @@ Default.args = {
   children: "Button",
   appearance: "primary",
   path: "/privilege",
-  iconBefore: <MdAdd />,
+  iconAfter: <MdAdd />,
   loading: false,
   disabled: false,
   type: "button",

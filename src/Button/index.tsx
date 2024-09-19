@@ -76,11 +76,7 @@ const ButtonStructure = (props: IButton) => {
     try {
       onClick && onClick(e);
     } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(error.message);
-      } else {
-        throw new Error("An unknown error occurred");
-      }
+      console.error(error);
     }
   };
 
@@ -119,7 +115,7 @@ const ButtonStructure = (props: IButton) => {
           size="small"
         />
       ) : (
-        <Stack alignItems="center" justifyContent="center">
+        <Stack alignItems="center" justifyContent="center" gap="8px">
           {iconBefore && (
             <Icon
               icon={iconBefore}
