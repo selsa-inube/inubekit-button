@@ -1,3 +1,15 @@
+# v4.36.0 (Tue Sep 24 2024)
+
+#### 🚀 Enhancement
+
+- Move button tokens from foundations to component [#54](https://github.com/selsa-inube/inubekit-button/pull/54) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v4.35.0 (Mon Sep 23 2024)
 
 #### 🚀 Enhancement
