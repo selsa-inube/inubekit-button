@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { inube } from "@inubekit/foundations";
+import { tokens } from "./Tokens/tokens";
 
 const StyledButton = styled.button`
   box-sizing: border-box;
@@ -27,17 +27,17 @@ const StyledButton = styled.button`
       if ($disabled) {
         return (
           theme?.button?.[$appearance].content?.color?.disabled ||
-          inube.button[$appearance].content.color.disabled
+          tokens[$appearance].content.color.disabled
         );
       }
       if ($parentHover)
         return (
           theme?.button?.[$appearance].content?.color?.hover ||
-          inube.button[$appearance].content.color.hover
+          tokens[$appearance].content.color.hover
         );
       return (
         theme?.button?.[$appearance].content?.color?.regular ||
-        inube.button[$appearance].content.color.regular
+        tokens[$appearance].content.color.regular
       );
     }
     return "transparent";
@@ -60,13 +60,13 @@ const StyledButton = styled.button`
       }
       return (
         theme?.button?.[$appearance].border?.color?.disabled ||
-        inube.button[$appearance].border.color.disabled
+        tokens[$appearance].border.color.disabled
       );
     }
     if ($parentHover && $variant !== "none")
       return (
         theme?.button?.[$appearance].border?.color?.hover ||
-        inube.button[$appearance].border.color.hover
+        tokens[$appearance].border.color.hover
       );
     if ($variant === "none") {
       return "transparent";
@@ -74,7 +74,7 @@ const StyledButton = styled.button`
 
     return (
       theme?.button?.[$appearance].border?.color?.regular ||
-      inube.button[$appearance].border.color.regular
+      tokens[$appearance].border.color.regular
     );
   }};
 
@@ -104,7 +104,7 @@ const StyledButton = styled.button`
         }
         return (
           theme?.button?.[$appearance].border?.color?.hover ||
-          inube.button[$appearance].border.color.hover
+          tokens[$appearance].border.color.hover
         );
       }
     }};
@@ -119,7 +119,7 @@ const StyledButton = styled.button`
       if (!$disabled && $cursorHover && $variant === "filled") {
         return (
           theme?.button?.[$appearance].content?.color?.hover ||
-          inube.button[$appearance].content.color.hover
+          tokens[$appearance].content.color.hover
         );
       }
       if (!$disabled && $cursorHover && $variant === "none") {

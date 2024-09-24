@@ -2,7 +2,6 @@ import { Icon } from "@inubekit/icon";
 import { Text } from "@inubekit/text";
 import { Spinner } from "@inubekit/spinner";
 import { Stack } from "@inubekit/stack";
-import { inube } from "@inubekit/foundations";
 import {
   IButtonAppearance,
   IButtonType,
@@ -14,6 +13,7 @@ import { StyledButton, StyledLink } from "./styles";
 import { useState } from "react";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
+import { tokens } from "./Tokens/tokens";
 
 interface IButton {
   children?: React.ReactNode;
@@ -61,10 +61,10 @@ const ButtonStructure = (props: IButton) => {
     parentHover = false,
   } = props;
 
-  const theme: typeof inube = useContext(ThemeContext);
+  const theme = useContext(ThemeContext) as { button: typeof tokens };
   const externalComponentAppearance = (appearance: IButtonAppearance) => {
     return (theme?.button?.[appearance]?.contrast?.appearance ||
-      inube.button[appearance].contrast.appearance) as IButtonAppearance;
+      tokens[appearance].contrast.appearance) as IButtonAppearance;
   };
 
   const [isHovered, setIsHovered] = useState(false);
