@@ -6,3 +6,4 @@ export type {
   IButtonType,
   IButtonSpacing,
 } from "./Button/props";
+export { tokens as ButtonTokens } from "./Button/Tokens/tokens";
